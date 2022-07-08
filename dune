@@ -1,0 +1,17 @@
+(ocamllex
+  (modules lexer)
+)
+
+(menhir
+  (modules parser)
+  (flags -la 2)
+)
+
+(library
+ (name calc)
+)
+
+(rule
+  (alias test)
+  (action (diff calc.exp calc.out))
+)
